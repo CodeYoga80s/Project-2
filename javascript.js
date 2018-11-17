@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     console.log("ready");
         $("#zipsub").on("click", function(event) {
             event.preventDefault();
