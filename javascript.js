@@ -1,21 +1,5 @@
 $(document).ready(function() {
     console.log("ready");
-    
-        $("#submit").on("click", function(event) {
-            event.preventDefault();
-            $.ajax({
-                url: "https://cors-anywhere.herokuapp.com/http://api.petfinder.com/breed.list?key=c2557dfbaaf18789923aa6e8aa40ced3&animal=dog&format=json",
-                method: "GET"
-              })
-        
-              .then(function(response) {
-                
-                console.log(response);
-                });
-
-            });
-
-
         $("#zipsub").on("click", function(event) {
             event.preventDefault();
             var devkey = "c2557dfbaaf18789923aa6e8aa40ced3"
@@ -39,7 +23,7 @@ $(document).ready(function() {
                             // var place = "<div><h1>"+shelters[i].name.$t+"</h1><div class='info'>"+shelters[i].state.$t+", " +shelters[i].zip.$t+ " phone: " +shelters[i].phone.$t+ "</div></div>";
                             var place = `<div class="shelterWrapper">
                                             <h4>${shelters[i].name.$t}</h4>
-                                            <h6><div class='info'>${shelters[i].state.$t}, ${shelters[i].zip.$t} phone: ${shelters[i].phone.$t}</div></h6>
+                                            <h6><div class='info'>${shelters[i].city.$t}, ${shelters[i].state.$t}, ${shelters[i].zip.$t} Phone: ${shelters[i].phone.$t} Email: ${shelters[i].email.$t}</div></h6>
                                          </div>`;
                             $("#shelterResults").append(place);
 
