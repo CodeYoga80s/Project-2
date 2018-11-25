@@ -1,17 +1,16 @@
-//
 require("dotenv").config();
 var express = require("express");
-var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
-var db = require("./models");
+
+// var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(express.static("public"));
 
 // Handlebars
@@ -36,7 +35,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
+// db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
@@ -44,6 +43,7 @@ db.sequelize.sync(syncOptions).then(function() {
       PORT
     );
   });
-});
+// });
 
 module.exports = app;
+
